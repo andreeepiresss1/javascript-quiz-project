@@ -61,4 +61,27 @@ class Quiz {
             return false;
         }
     }
+
+    // 7. filterQuestionsByDifficulty()
+    filterQuestionsByDifficulty(difficulty){
+        if (difficulty>=1 && difficulty<=3){
+            const newVar7 = this.questions.filter( each_question =>{
+            return each_question.difficulty === difficulty; 
+            })
+            this.questions=newVar7;
+        }
+    }    
+
+
+    // 8. averageDifficulty()    
+    averageDifficulty(){
+        const sumDifficulty = this.questions.reduce((accummulative, each_question)=>{
+            const valueDifficulty = each_question.difficulty;
+            return accummulative + valueDifficulty;
+            },0)
+        const howManyQuesitons = this.questions.length;
+        return sumDifficulty/howManyQuesitons;
+    }
+
+
 }
